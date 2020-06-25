@@ -10,7 +10,7 @@ All of the 17 races are remastered/reworked versions of Holliday's races. Unlike
 **List of races:**
 - Athena
 - Beast
-- Blood Demon (Also Known as Malachai)
+- Blood Demon
 - Die Xonvert
 - Eye Ra
 - Genocide
