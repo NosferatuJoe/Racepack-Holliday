@@ -1,0 +1,253 @@
+﻿//////////////////////
+//Holliday Race Pack//
+//Version 1.0.0B    //
+//////////////////////
+
+block load
+{
+	es_xset wcs_reptile_start 1
+}
+
+event round_end
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Event Round_End (START)
+	}
+	es_xset wcs_reptile_start 1
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Event Round_End (END)
+	}
+}
+
+event round_start
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Event Round_Start (START)
+	}
+	es_delayed 1 es_xset wcs_reptile_start 0
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Event Round_Start (END)
+	}
+}
+
+block spawn
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Spawn (START)
+	}
+	es wcsgroup set reptile event_var(userid) 1
+	es wcs_removeweapon event_var(userid) 1
+	es wcs_removeweapon event_var(userid) 2
+	es_delayed .1 es_give event_var(userid) weapon_knife
+	es_delayed .5 wcs_color event_var(userid) 0 255 0 255 1
+	if (server_var(wcs_reptile_start) == 1) do
+	{
+		es_xmath wcs_smokestack_counter + 1
+		es_give event_var(userid) env_steam
+		es_format ss_name "my_ss_%1%2" event_var(userid) server_var(wcs_smokestack_counter)
+		es_entitysetvalue server_var(eventscripts_lastgive) "targetname" server_var(ss_name)
+		es_fire event_var(userid) server_var(ss_name) addoutput "spreadspeed 10"
+		es_fire event_var(userid) server_var(ss_name) addoutput "speed 65"
+		es_fire event_var(userid) server_var(ss_name) addoutput "rate 20"
+		es_fire event_var(userid) server_var(ss_name) addoutput "startsize 15"
+		es_fire event_var(userid) server_var(ss_name) addoutput "endsize 32"
+		es_fire event_var(userid) server_var(ss_name) addoutput "jetlength 150"
+		es_fire event_var(userid) server_var(ss_name) addoutput "rollspeed 10"
+		es_fire event_var(userid) server_var(ss_name) addoutput "rendercolor 0 255 0"
+		es_fire event_var(userid) server_var(ss_name) turnon
+		es_fire event_var(userid) server_var(ss_name) setparent !activator
+		es_delayed 6 es_fire event_var(userid) server_var(ss_name) kill
+	}
+	es_getgame wcs_gamecheck
+	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
+	{
+		es wcs_restrict event_var(userid) "glock;usp;p228;deagle;elite;fiveseven;m3;xm1014;mac10;tmp;mp5navy;ump45;p90;galil;famas;ak47;m4a1;scout;aug;sg550;awp;sg552;g3sg1;m249"
+		es_playsound event_var(userid) npc\zombie\zombie_pain6.wav 1
+	}
+	if ("Counter-Strike: Global Offensive" in server_var(wcs_gamecheck)) do
+	{
+		es wcs_restrict event_var(userid) "glock;usp_silencer;p250;hkp2000;elite;fiveseven;deagle;revolver;tec9;taser;sawedoff;nova;xm1014;mag7;p90;cz75a;mp9;mp7;bizon;mac10;ump45;m4a1;m4a1_silencer;galilar;ak47;aug;famas;g3sg1;scar20;awp;sg556;ssg08;m249;negev"
+		es_playsound event_var(userid) player\pl_burnpain3.wav 1
+	}
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Spawn (END)
+	}
+}
+
+block death
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Death (START)
+	}
+	es wcsgroup set reptile event_var(userid) 0
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Death (END)
+	}
+}
+
+block onchange
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] OnChange (START)
+	}
+	es wcsgroup set reptile server_var(wcs_userid) 0
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] OnChange (END)
+	}
+}
+
+block chameleon
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Skill: 1 (START)
+	}
+	es wcsgroup get reptile wcs_tmp3 server_var(wcs_userid)
+	if (server_var(wcs_tmp3) == 1) do
+	{
+		es wcs_setfx speed server_var(wcs_userid) = 2.25 server_var(wcs_duration)
+		es wcs_setfx gravity server_var(wcs_userid) - 0.40 server_var(wcs_duration)
+		es wcs_fade server_var(wcs_userid) 0 220 0 100 server_var(wcs_duration) 4
+		es wcs_color server_var(wcs_userid) 255 255 255 0 1
+		es_delayed server_var(wcs_duration) wcs_color server_var(wcs_userid) 255 255 255 255 1
+		es playerget primary wcs_primary server_var(wcs_userid)
+		es playerget secondary wcs_secondary server_var(wcs_userid)
+		es wcsgroup set reptile_primary server_var(wcs_userid) server_var(wcs_primary)
+		es wcsgroup set reptile_secondary server_var(wcs_userid) server_var(wcs_secondary)
+		es_delayed server_var(wcs_duration) wcsgroup get reptile_primary wcs_primary server_var(wcs_userid)
+		es_delayed server_var(wcs_duration) wcsgroup get reptile_secondary wcs_secondary server_var(wcs_userid)
+		es wcs_removeweapon server_var(wcs_userid) 1
+		es wcs_removeweapon server_var(wcs_userid) 2
+		es wcs_removeweapon server_var(wcs_userid) 3
+		es_delayed server_var(wcs_duration) wcs_removeweapon server_var(wcs_userid) 1
+		es_delayed server_var(wcs_duration) wcs_removeweapon server_var(wcs_userid) 2
+		es_delayed server_var(wcs_duration) wcs_removeweapon server_var(wcs_userid) 3		
+		es_delayed server_var(wcs_duration) es_give server_var(wcs_userid) weapon_knife
+		es_delayed server_var(wcs_duration) es_give server_var(wcs_userid) server_var(wcs_primary)
+		es_delayed server_var(wcs_duration) es_give server_var(wcs_userid) server_var(wcs_secondary)
+		es_tell server_var(wcs_userid) #multi #green[WCS]#lightgreen Chameleon - You'll blend with the terrain for server_var(wcs_duration) seconds!
+		es_delayed server_var(wcs_duration) es_tell server_var(wcs_userid) #multi #green[WCS]#lightgreen Chameleon - You're now visible once more
+		es_xmath wcs_duration - 1
+		es_delayed server_var(wcs_duration) wcs_centertell server_var(wcs_userid) You'll become visible again in 1 second!
+		es_xmath wcs_smokestack_counter + 1
+		es_give server_var(wcs_userid) env_steam
+		es_format ss_name "my_ss_%1%2" server_var(wcs_userid) server_var(wcs_smokestack_counter)
+		es_entitysetvalue server_var(eventscripts_lastgive) "targetname" server_var(ss_name)
+		es_fire server_var(wcs_userid) server_var(ss_name) addoutput "spreadspeed 10"
+		es_fire server_var(wcs_userid) server_var(ss_name) addoutput "speed 165"
+		es_fire server_var(wcs_userid) server_var(ss_name) addoutput "rate 75"
+		es_fire server_var(wcs_userid) server_var(ss_name) addoutput "startsize 11"
+		es_fire server_var(wcs_userid) server_var(ss_name) addoutput "endsize 3"
+		es_fire server_var(wcs_userid) server_var(ss_name) addoutput "jetlength 300"
+		es_fire server_var(wcs_userid) server_var(ss_name) addoutput "rollspeed 10"
+		es_fire server_var(wcs_userid) server_var(ss_name) addoutput "rendercolor 0 255 0"
+		es_fire server_var(wcs_userid) server_var(ss_name) turnon
+		es_fire server_var(wcs_userid) server_var(ss_name) setparent !activator
+		es_delayed server_var(wcs_duration) es_fire server_var(wcs_userid) server_var(ss_name) kill
+		es_getgame wcs_gamecheck
+		if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
+		{
+			es_playsound server_var(wcs_userid) ambient\levels\citadel\extract_loop1.wav 1
+			es_delayed server_var(wcs_duration) es_stopsound server_var(wcs_userid) ambient\levels\citadel\extract_loop1.wav
+		}
+		if ("Counter-Strike: Global Offensive" in server_var(wcs_gamecheck)) do
+		{
+			es_playsound server_var(wcs_userid) weapons\smokegrenade\smoke_emit.wav 1
+		}
+	}
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Skill: 1 (END)
+	}
+}
+
+block agility
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Skill: 2 (START)
+	}
+	es wcs_setfx longjump event_var(userid) + server_var(wcs_range) 0
+	es wcs_setfx speed event_var(userid) = server_var(wcs_speed) 0
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Skill: 2 (END)
+	}
+}
+
+block hiddenchop
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Skill: 3 (START)
+	}
+	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
+	{
+		if (event_var(es_userdead) = 0) do
+		{
+			if (event_var(es_attackerdead) = 0) do
+			{
+				es wcs_drop event_var(userid) 1
+				es wcs_drop event_var(userid) 2
+				es wcs_drop event_var(userid) 3
+				es_tell event_var(userid) #multi #green[WCS]#lightgreen Hidden Chop - You've caused event_var(es_username) to drop their weapons!
+				es_tell event_var(attacker) #multi #green[WCS]#lightgreen Hidden Chop - event_var(es_attackername) Caused you to drop your weapons!
+				es_give event_var(userid) env_blood
+				es_fire event_var(userid) env_blood addoutput "amount 90"
+				es_fire event_var(userid) env_blood addoutput "spawnflags 52"
+				es_fire event_var(userid) env_blood emitblood
+				es_delayed 3 es_fire event_var(userid) env_blood kill
+				es_getgame wcs_gamecheck
+				if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
+				{
+					es_playsound event_var(userid) npc\manhack\grind_flesh1.wav 1
+				}
+				if ("Counter-Strike: Global Offensive" in server_var(wcs_gamecheck)) do
+				{
+					es_playsound event_var(userid) physics\flesh\flesh_impact_bullet5.wav 1
+				}
+			}
+		}
+	}
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Skill: 3 (END)
+	}
+}
+
+block reptile
+{
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Skill: 4 (START)
+	}
+	es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 server_var(wcs_userid)
+	es playerget health wcs_health server_var(wcs_userid)
+	es_delayed .1 wcs_spawn server_var(wcs_userid) 1
+	es_delayed .2 wcs_teleport server_var(wcs_userid) server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1)
+	es_delayed .3 wcs_color server_var(wcs_userid) 255 255 255 0 1
+	es_delayed .7 wcs_setfx health server_var(wcs_userid) = server_var(wcs_health) 0
+	es_delayed .7 wcs_setfx speed server_var(wcs_userid) + .25 0
+	es_delayed .7 wcs_setfx gravity server_var(wcs_userid) - .1 0
+	es_delayed server_var(wcs_duration) wcs_color server_var(wcs_userid) 255 255 255 255 1
+	es_give server_var(wcs_userid) env_blood
+	es_fire server_var(wcs_userid) env_blood addoutput "spawnflags 41"
+	es_fire server_var(wcs_userid) env_blood emitblood
+	es_delayed 3 es_fire server_var(wcs_userid) env_blood kill
+	es_tell server_var(wcs_userid) #multi #green[WCS]#lightgreen Reptile - You've faked your own death
+	es_delayed .2 wcs_setcooldown server_var(wcs_userid) server_var(wcs_duration)
+	ifx true(wcs_race_debugging) do
+	{
+		es_log [Race]: Reptile - [Block] Skill: 4 (END)
+	}
+}
