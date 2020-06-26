@@ -28,11 +28,11 @@ All of the 17 races are remastered/reworked versions of Holliday's races. Unlike
 
 
 ## Step-by-step installation guide
-- Go to your csgo or cstrike directory.
+- Go to your csgo or cstrike directory (Some servers name this directory the server's IP instead).
 - Drag and drop the two folders named: "cfg" and "addons" in to the directory.
-- Now go to csgo/cfg find and open the file named: "autoexec.cfg"
+- Now go to csgo/cfg find and open the file named: "autoexec.cfg".
 - Add the following line: ```es_load wcs/loaders/racepack_holliday``` to the file, save it, and close the file.
-- Go to csgo/cfg/source-python/wcs/ and open the file named: ```Racepack Holliday - (Version 1.0.0B).ini```
+- Go to csgo/cfg/source-python/wcs/ and open the file named: ```Racepack Holliday - (Version 1.0.0B).ini```.
 - Copy all the text and paste it in your races.ini file and restart your the server.
 - NOTE! If you don't have a races.ini file already, then just change the name of the file from ```Racepack Holliday - (Version 1.0.0B).ini``` to ```races.ini``` and then restart your server.
 
