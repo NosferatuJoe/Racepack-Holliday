@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Spawn (START)
+		wcs_log -1 [Race]: Spiderman - [Block] Spawn (START)
 	}
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
@@ -24,7 +24,7 @@ block spawn
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Spawn (END)
+		wcs_log -1 [Race]: Spiderman - [Block] Spawn (END)
 	}
 }
 
@@ -32,7 +32,7 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Death (START)
+		wcs_log -1 [Race]: Spiderman - [Block] Death (START)
 	}
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
@@ -43,7 +43,7 @@ block death
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Death (END)
+		wcs_log -1 [Race]: Spiderman - [Block] Death (END)
 	}
 }
 
@@ -51,7 +51,7 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] OnChange (START)
+		wcs_log -1 [Race]: Spiderman - [Block] OnChange (START)
 	}
 	es wcsgroup set venom_weblines server_var(wcs_userid) 0
 	es wcsgroup set evasion server_var(wcs_userid) 0
@@ -62,7 +62,7 @@ block onchange
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] OnChange (END)
+		wcs_log -1 [Race]: Spiderman - [Block] OnChange (END)
 	}
 }
 
@@ -70,14 +70,14 @@ block spidersense
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Spiderman - [Block] Skill: 1 (START)
 	}
 	es wcsgroup set evasion event_var(userid) 1
 	es wcsgroup set evasion_chance event_var(userid) server_var(wcs_chance)
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Spider sense - Gave you server_var(wcs_chance) to dodge incoming attacks
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Spiderman - [Block] Skill: 1 (END)
 	}
 }
 
@@ -85,7 +85,7 @@ block agility
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Spiderman - [Block] Skill: 2 (START)
 	}
 	es wcs_setfx longjump event_var(userid) + .1 0
 	es wcs_setfx speed event_var(userid) = server_var(wcs_speed) 0
@@ -94,7 +94,7 @@ block agility
 	es est_effect 10 #a 0 models/police/pupil_r.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) 101 100 1 50 10 0 255 100 100 255 10
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Spiderman - [Block] Skill: 2 (END)
 	}
 }
 
@@ -102,7 +102,7 @@ block shooters
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Spiderman - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -130,7 +130,7 @@ block shooters
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Spiderman - [Block] Skill: 3 (END)
 	}
 }
 
@@ -138,7 +138,7 @@ block weblines
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Spiderman - [Block] Skill: 4 (START)
 	}
 	es wcsgroup get spiderman_weblines wcs_tmp10 server_var(wcs_userid)
 	if (server_var(wcs_tmp10) == 0) do
@@ -277,6 +277,6 @@ block weblines
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Spiderman - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Spiderman - [Block] Skill: 4 (END)
 	}
 }

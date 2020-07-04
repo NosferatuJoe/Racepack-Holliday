@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Spawn (START)
+		wcs_log -1 [Race]: Athena - [Block] Spawn (START)
 	}
 	es_getgame wcs_gamecheck
 	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
@@ -24,7 +24,7 @@ block spawn
 	es est_effect 10 #a 0 sprites/lgtning.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) 20 500 3 100 10 0 255 105 155 255 8
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Spawn (END)
+		wcs_log -1 [Race]: Athena - [Block] Spawn (END)
 	}
 }
 
@@ -32,12 +32,12 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Death (START)
+		wcs_log -1 [Race]: Athena - [Block] Death (START)
 	}
 	es wcsgroup set headshot_immunity event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Death (END)
+		wcs_log -1 [Race]: Athena - [Block] Death (END)
 	}
 }
 
@@ -45,12 +45,12 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] OnChange (START)
+		wcs_log -1 [Race]: Athena - [Block] OnChange (START)
 	}
 	es wcsgroup set headshot_immunity server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] OnChange (END)
+		wcs_log -1 [Race]: Athena - [Block] OnChange (END)
 	}
 }
 
@@ -58,7 +58,7 @@ block spear
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -76,7 +76,7 @@ block spear
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 1 (END)
 	}
 }
 
@@ -84,7 +84,7 @@ block gravity
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 2 (START)
 	}
 	if (event_var(es_userdead) = 0) do
 	{
@@ -93,7 +93,7 @@ block gravity
 		ifx true(wcs_race_debugging) do
 	}
 	{
-		es_log [Race]: Athena - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 2 (END)
 	}
 }
 
@@ -101,7 +101,7 @@ block goldenhelmet
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -113,7 +113,7 @@ block goldenhelmet
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 3 (END)
 	}
 }
 
@@ -122,7 +122,7 @@ block shield
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 4 (START)
 	}
 	es_xset wcs_execute_ultimate 0
 	es_getplayerteam wcs_team server_var(wcs_userid)
@@ -180,7 +180,7 @@ block shield
 	if (server_var(wcs_ultinotexec) = 1) then es wcs_cancelulti server_var(wcs_userid)
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 4 (END)
 	}
 }
 
@@ -188,7 +188,7 @@ block shield_checks
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 4 (CHECKS START)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 4 (CHECKS START)
 	}
 	es_exists ex userid server_var(wcs_targetid)
 	if (server_var(ex) = 1) do
@@ -235,7 +235,7 @@ block shield_checks
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 4 (CHECKS END)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 4 (CHECKS END)
 	}
 }
 
@@ -243,7 +243,7 @@ block shield_final
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 4 (EXECUTED START)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 4 (EXECUTED START)
 	}
 	es_getgame wcs_gamecheck
 	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
@@ -276,6 +276,6 @@ block shield_final
 	es est_effect 3 #a 0 effects/tp_eyefx/tpeye3.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 5 7 3 25 25 25 255
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Athena - [Block] Skill: 4 (EXECUTED END)
+		wcs_log -1 [Race]: Athena - [Block] Skill: 4 (EXECUTED END)
 	}
 }

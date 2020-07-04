@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Spawn (START)
+		wcs_log -1 [Race]: Nebula - [Block] Spawn (START)
 	}
 	es_getgame wcs_gamecheck
 	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
@@ -42,7 +42,7 @@ block spawn
     es_delayed 4.5 es_fire event_var(userid) server_var(ss_name) kill
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Spawn (END)
+		wcs_log -1 [Race]: Nebula - [Block] Spawn (END)
 	}
 }
 
@@ -50,7 +50,7 @@ block maser
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Nebula - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -76,7 +76,7 @@ block maser
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Nebula - [Block] Skill: 1 (END)
 	}
 }
 
@@ -84,7 +84,7 @@ block protostar
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Nebula - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -113,7 +113,7 @@ block protostar
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Nebula - [Block] Skill: 2 (END)
 	}
 }
 
@@ -121,7 +121,7 @@ block messier
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Nebula - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -154,7 +154,7 @@ block messier
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Nebula - [Block] Skill: 3 (END)
 	}
 }
 
@@ -162,7 +162,7 @@ block nebula
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Nebula - [Block] Skill: 4 (START)
 	}
 	es_xmath wcs_smokestack_counter + 1
 	es_give server_var(wcs_userid) env_steam
@@ -185,6 +185,6 @@ block nebula
 	es_tell server_var(wcs_userid) #multi #green [WCS]: #lightgreen Nebula - You become fully visible in server_var(wcs_duration) seconds
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Nebula - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Nebula - [Block] Skill: 4 (END)
 	}
 }

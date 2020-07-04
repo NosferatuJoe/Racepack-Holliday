@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Spawn (START)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Spawn (START)
 	}
 	es_playsound event_var(userid) weapons\hegrenade\explode3.wav 1
 	es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(userid)
@@ -26,7 +26,7 @@ block spawn
 	es est_effect_06 #a 0 sprites/bluelaser1.vmt server_var(vector1) server_var(vector2) 100 3 5 5 10 0 228 228 228 255 30
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Spawn (END)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Spawn (END)
 	}
 }
 
@@ -34,7 +34,7 @@ block slip
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -61,7 +61,7 @@ block slip
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Skill: 1 (END)
 	}
 }
 
@@ -69,7 +69,7 @@ block mirror
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -115,7 +115,7 @@ block mirror
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Skill: 2 (END)
 	}
 }
 
@@ -123,7 +123,7 @@ block thunder
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -150,7 +150,7 @@ block thunder
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Skill: 3 (END)
 	}
 }
 
@@ -158,7 +158,7 @@ block osmosis
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Skill: 4 (START)
 	}
 	es wcs_setfx longjump server_var(wcs_userid) + .25 server_var(wcs_duration)
 	es wcs_setfx speed server_var(wcs_userid) = 1.5 server_var(wcs_duration)
@@ -169,6 +169,6 @@ block osmosis
 	es_tell server_var(wcs_userid) #multi #green [WCS]: #lightgreen Ozzmosis - Boosted your stats for server_var(wcs_duration) seconds
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ozzmosis - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Ozzmosis - [Block] Skill: 4 (END)
 	}
 }

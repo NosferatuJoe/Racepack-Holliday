@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Spawn (START)
+		wcs_log -1 [Race]: Scorpion - [Block] Spawn (START)
 	}
 	es_getplayerlocation wcs_x2 wcs_y2 wcs_z2 event_var(userid)
 	es_xmath wcs_z11 + 15
@@ -61,7 +61,7 @@ block spawn
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Spawn (END)
+		wcs_log -1 [Race]: Scorpion - [Block] Spawn (END)
 	}
 }
 
@@ -69,7 +69,7 @@ block bloodyspear
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -100,7 +100,7 @@ block bloodyspear
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 1 (END)
 	}
 }
 
@@ -108,7 +108,7 @@ block hellfirepunch
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -124,7 +124,7 @@ block hellfirepunch
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 2 (END)
 	}
 }
 
@@ -132,7 +132,7 @@ block hellfire
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -187,7 +187,7 @@ block hellfire
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 3 (END)
 	}
 }
 
@@ -195,7 +195,7 @@ block tele
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 4 (START)
 	}
 	es_xset wcs_execute_ultimate 0
 	es_getplayerteam wcs_team server_var(wcs_userid)
@@ -273,7 +273,7 @@ block tele
 	if (server_var(wcs_ultinotexec) = 1) then es wcs_cancelulti server_var(wcs_userid)
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 4 (END)
 	}
 }
 
@@ -281,7 +281,7 @@ block xraypath
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 4 (CHECKS START)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 4 (CHECKS START)
 	}
 	es_exists ex userid server_var(wcs_targetid)
 	if (server_var(ex) = 1) do
@@ -328,7 +328,7 @@ block xraypath
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 4 (CHECKS END)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 4 (CHECKS END)
 	}
 }
 
@@ -336,7 +336,7 @@ block xray_final
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 4 (EXECUTED START)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 4 (EXECUTED START)
 	}
 	es_getgame wcs_gamecheck
 	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
@@ -356,6 +356,6 @@ block xray_final
 	es wcs_pushto server_var(wcs_targetid) server_var(vector2) 1
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Scorpion - [Block] Skill: 4 (EXECUTED END)
+		wcs_log -1 [Race]: Scorpion - [Block] Skill: 4 (EXECUTED END)
 	}
 }

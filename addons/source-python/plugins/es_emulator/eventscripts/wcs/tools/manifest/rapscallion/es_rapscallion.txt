@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Spawn (START)
+		wcs_log -1 [Race]: Rapscallion - [Block] Spawn (START)
 	}
 	if (event_var(es_userdead) = 0) do
 	{
@@ -33,7 +33,7 @@ block spawn
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Spawn (END)
+		wcs_log -1 [Race]: Rapscallion - [Block] Spawn (END)
 	}
 }
 
@@ -41,13 +41,13 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Death (START)
+		wcs_log -1 [Race]: Rapscallion - [Block] Death (START)
 	}
 	es wcsgroup set rapscallion event_var(userid) 0
 	es wcsgroup set is_frozen event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Death (END)
+		wcs_log -1 [Race]: Rapscallion - [Block] Death (END)
 	}
 }
 
@@ -55,13 +55,13 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] OnChange (START)
+		wcs_log -1 [Race]: Rapscallion - [Block] OnChange (START)
 	}
 	es wcsgroup set rapscallion server_var(wcs_userid) 0
 	es wcsgroup set is_frozen server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] OnChange (END)
+		wcs_log -1 [Race]: Rapscallion - [Block] OnChange (END)
 	}
 }
 
@@ -69,7 +69,7 @@ block shadows
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -82,7 +82,7 @@ block shadows
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 1 (END)
 	}
 }
 
@@ -90,7 +90,7 @@ block adrenaline
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 2 (START)
 	}
 	if (event_var(es_userdead) = 0) do
 	{
@@ -99,7 +99,7 @@ block adrenaline
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 2 (END)
 	}
 }
 
@@ -107,7 +107,7 @@ block blade
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 3 (START)
 	}
 	if (event_var(weapon) == knife) do
 	{
@@ -143,7 +143,7 @@ block blade
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 3 (END)
 	}
 }
 
@@ -151,13 +151,13 @@ block levitation
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 4 (START)
 	}
 	es_delayed .2 wcs_setfx gravity event_var(userid) = server_var(wcs_gravity) 0
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Levitation - Has reduced your gravity
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 4 (END)
 	}
 }
 
@@ -165,7 +165,7 @@ block invisible
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 5 (START)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 5 (START)
 	}
 	es_getgame wcs_gamecheck
 	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
@@ -209,6 +209,6 @@ block invisible
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Rapscallion - [Block] Skill: 5 (END)
+		wcs_log -1 [Race]: Rapscallion - [Block] Skill: 5 (END)
 	}
 }

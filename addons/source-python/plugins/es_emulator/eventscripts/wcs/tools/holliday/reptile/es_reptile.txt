@@ -12,12 +12,12 @@ event round_end
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Event Round_End (START)
+		wcs_log -1 [Race]: Reptile - [Block] Event Round_End (START)
 	}
 	es_xset wcs_reptile_start 1
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Event Round_End (END)
+		wcs_log -1 [Race]: Reptile - [Block] Event Round_End (END)
 	}
 }
 
@@ -25,12 +25,12 @@ event round_start
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Event Round_Start (START)
+		wcs_log -1 [Race]: Reptile - [Block] Event Round_Start (START)
 	}
 	es_delayed 1 es_xset wcs_reptile_start 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Event Round_Start (END)
+		wcs_log -1 [Race]: Reptile - [Block] Event Round_Start (END)
 	}
 }
 
@@ -38,7 +38,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Spawn (START)
+		wcs_log -1 [Race]: Reptile - [Block] Spawn (START)
 	}
 	es wcsgroup set reptile event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 1
@@ -76,7 +76,7 @@ block spawn
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Spawn (END)
+		wcs_log -1 [Race]: Reptile - [Block] Spawn (END)
 	}
 }
 
@@ -84,12 +84,12 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Death (START)
+		wcs_log -1 [Race]: Reptile - [Block] Death (START)
 	}
 	es wcsgroup set reptile event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Death (END)
+		wcs_log -1 [Race]: Reptile - [Block] Death (END)
 	}
 }
 
@@ -97,12 +97,12 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] OnChange (START)
+		wcs_log -1 [Race]: Reptile - [Block] OnChange (START)
 	}
 	es wcsgroup set reptile server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] OnChange (END)
+		wcs_log -1 [Race]: Reptile - [Block] OnChange (END)
 	}
 }
 
@@ -110,7 +110,7 @@ block chameleon
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Reptile - [Block] Skill: 1 (START)
 	}
 	es wcsgroup get reptile wcs_tmp3 server_var(wcs_userid)
 	if (server_var(wcs_tmp3) == 1) do
@@ -167,7 +167,7 @@ block chameleon
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Reptile - [Block] Skill: 1 (END)
 	}
 }
 
@@ -175,13 +175,13 @@ block agility
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Reptile - [Block] Skill: 2 (START)
 	}
 	es wcs_setfx longjump event_var(userid) + server_var(wcs_range) 0
 	es wcs_setfx speed event_var(userid) = server_var(wcs_speed) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Reptile - [Block] Skill: 2 (END)
 	}
 }
 
@@ -189,7 +189,7 @@ block hiddenchop
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Reptile - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -221,7 +221,7 @@ block hiddenchop
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Reptile - [Block] Skill: 3 (END)
 	}
 }
 
@@ -229,7 +229,7 @@ block reptile
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Reptile - [Block] Skill: 4 (START)
 	}
 	es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 server_var(wcs_userid)
 	es playerget health wcs_health server_var(wcs_userid)
@@ -248,6 +248,6 @@ block reptile
 	es_delayed .2 wcs_setcooldown server_var(wcs_userid) server_var(wcs_duration)
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Reptile - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Reptile - [Block] Skill: 4 (END)
 	}
 }

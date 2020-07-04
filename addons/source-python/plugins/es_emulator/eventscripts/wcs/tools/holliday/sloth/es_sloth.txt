@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Spawn (START)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Spawn (START)
 	}
 	es wcs_removeweapon event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 2
@@ -29,7 +29,7 @@ block spawn
 	es wcsgroup set hell_sloth event_var(userid) 1
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Spawn (END)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Spawn (END)
 	}
 }
 
@@ -37,12 +37,12 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Death (START)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Death (START)
 	}
 	es wcsgroup set hell_sloth event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Death (END)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Death (END)
 	}
 }
 
@@ -50,13 +50,13 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] OnChange (START)
+		wcs_log -1 [Race]: Hell Sloth - [Block] OnChange (START)
 	}
 	es wcs_unrestrict server_var(wcs_userid) all
 	es wcsgroup set hell_sloth server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] OnChange (END)
+		wcs_log -1 [Race]: Hell Sloth - [Block] OnChange (END)
 	}
 }
 
@@ -64,7 +64,7 @@ block paralyze
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -88,7 +88,7 @@ block paralyze
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Skill: 1 (END)
 	}
 }
 
@@ -96,7 +96,7 @@ block struck
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -113,7 +113,7 @@ block struck
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Skill: 2 (END)
 	}
 }
 
@@ -121,7 +121,7 @@ block hell
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do 
 	{
@@ -138,7 +138,7 @@ block hell
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Skill: 3 (END)
 	}
 }
 
@@ -146,7 +146,7 @@ block sloth
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Skill: 4 (START)
 	}
 	es wcsgroup get hell_sloth wcs_tmp3 server_var(wcs_userid)
 	if (server_var(wcs_tmp3) == 1) do
@@ -307,6 +307,6 @@ block sloth
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Hell Sloth - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Hell Sloth - [Block] Skill: 4 (END)
 	}
 }
