@@ -2,6 +2,13 @@
 This is an easy-to-install race package for Tha Pwned's version of the Warcraft-Source modification which can be found and downloaded [here](https://github.com/ThaPwned/WCS).
 
 
+## Requirements
+For this package to work, it is required that you first install the following:
+- [EventScripts-Emulator](https://github.com/Ayuto/EventScripts-Emulator)
+- [Warcraft-Source](https://github.com/ThaPwned/WCS)
+- [Warcraft-Source: Essentials](https://github.com/ManifestManah/Warcraft-Source-Essentials)
+
+
 ## What does this package do? - And what does it contain?
 Installing this package on to your server will add 17 new races to your Warcraft-Source server.
 All of the 17 races are remastered/reworked versions of Holliday's races. Unlike the previously released Holliday races & racepacks this one will not cause your server to occassionally crash. I'd recommend this package to any server owner due to it's nostalgia. The pack contains races that brought a lot of joy to both community and players alike.
