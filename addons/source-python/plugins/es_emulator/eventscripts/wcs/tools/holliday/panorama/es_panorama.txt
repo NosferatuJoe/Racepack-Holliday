@@ -1,13 +1,13 @@
 //////////////////////
 //Holliday Race Pack//
-//Version 1.0.0B    //
+//Version 1.0.1B    //
 //////////////////////
 
 block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Spawn (START)
+		wcs_log [Race]: Panorama - [Block] Spawn (START)
 	}
 	es wcsgroup set panorama_zoom event_var(userid) 1
 	es_getgame wcs_gamecheck
@@ -21,7 +21,7 @@ block spawn
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Spawn (END)
+		wcs_log [Race]: Panorama - [Block] Spawn (END)
 	}
 }
 
@@ -29,12 +29,12 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Death (START)
+		wcs_log [Race]: Panorama - [Block] Death (START)
 	}
 	es wcsgroup set panorama_zoom event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Death (END)
+		wcs_log [Race]: Panorama - [Block] Death (END)
 	}
 }
 
@@ -42,12 +42,12 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] OnChange (START)
+		wcs_log [Race]: Panorama - [Block] OnChange (START)
 	}
 	es wcsgroup set panorama_zoom server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] OnChange (END)
+		wcs_log [Race]: Panorama - [Block] OnChange (END)
 	}
 }
 
@@ -55,13 +55,13 @@ block wallclimb
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Skill: 1 (START)
+		wcs_log [Race]: Panorama - [Block] Skill: 1 (START)
 	}
 	es_setplayerprop event_var(userid) CBasePlayer.localdata.m_Local.m_flStepSize server_var(wcs_range)
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Wall climb - You can now climb over tall objects
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Skill: 1 (END)
+		wcs_log [Race]: Panorama - [Block] Skill: 1 (END)
 	}
 }
 
@@ -69,7 +69,7 @@ block flipview
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Skill: 2 (START)
+		wcs_log [Race]: Panorama - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -94,7 +94,7 @@ block flipview
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Skill: 2 (END)
+		wcs_log [Race]: Panorama - [Block] Skill: 2 (END)
 	}
 }
 
@@ -102,7 +102,7 @@ block rematch
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Skill: 3 (START)
+		wcs_log [Race]: Panorama - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -137,7 +137,7 @@ block rematch
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Skill: 3 (END)
+		wcs_log [Race]: Panorama - [Block] Skill: 3 (END)
 	}
 }
 
@@ -145,7 +145,7 @@ block zoom
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Skill: 4 (START)
+		wcs_log [Race]: Panorama - [Block] Skill: 4 (START)
 	}
 	es_playsound server_var(wcs_userid) weapons\zoom.wav .75
 	es wcsgroup get panorama_zoom wcs_tmp1 server_var(wcs_userid)
@@ -167,6 +167,6 @@ block zoom
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Panorama - [Block] Skill: 4 (END)
+		wcs_log [Race]: Panorama - [Block] Skill: 4 (END)
 	}
 }

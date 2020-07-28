@@ -1,13 +1,13 @@
 //////////////////////
 //Holliday Race Pack//
-//Version 1.0.0B    //
+//Version 1.0.1B    //
 //////////////////////
 
 block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Spawn (START)
+		wcs_log [Race]: Beast - [Block] Spawn (START)
 	}
 	es_getgame wcs_gamecheck
 	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
@@ -20,7 +20,7 @@ block spawn
 	es est_effect 10 #a 0 sprites/lgtning.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) 20 500 3 100 100 0 255 55 0 255 10
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Spawn (END)
+		wcs_log [Race]: Beast - [Block] Spawn (END)
 	}
 }
 
@@ -28,7 +28,7 @@ block rage
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Skill: 1 (START)
+		wcs_log [Race]: Beast - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -52,7 +52,7 @@ block rage
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Skill: 1 (END)
+		wcs_log [Race]: Beast - [Block] Skill: 1 (END)
 	}
 }
 
@@ -60,7 +60,7 @@ block resurrection
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Skill: 2 (START)
+		wcs_log [Race]: Beast - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -81,7 +81,7 @@ block resurrection
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Skill: 2 (END)
+		wcs_log [Race]: Beast - [Block] Skill: 2 (END)
 	}
 }
 
@@ -89,7 +89,7 @@ block burning_blind
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Skill: 3 (START)
+		wcs_log [Race]: Beast - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -126,7 +126,7 @@ block burning_blind
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Skill: 3 (END)
+		wcs_log [Race]: Beast - [Block] Skill: 3 (END)
 	}
 }
 
@@ -134,7 +134,7 @@ block teleport_push
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Skill: 4 (START)
+		wcs_log [Race]: Beast - [Block] Skill: 4 (START)
 	}
 	es_xset wcs_ok 1
 	es playerget viewcoord server_var(wcs_userid) wcs_x1 wcs_y1 wcs_z1
@@ -270,6 +270,6 @@ block teleport_push
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Beast - [Block] Skill: 4 (END)
+		wcs_log [Race]: Beast - [Block] Skill: 4 (END)
 	}
 }

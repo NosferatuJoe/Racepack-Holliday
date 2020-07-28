@@ -1,13 +1,13 @@
 //////////////////////
 //Holliday Race Pack//
-//Version 1.0.0B    //
+//Version 1.0.1B    //
 //////////////////////
 
 block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Spawn (START)
+		wcs_log [Race]: Vagabond - [Block] Spawn (START)
 	}
 	es wcs_removeweapon event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 2
@@ -32,7 +32,7 @@ block spawn
 	es est_effect 11 #a 0 effects/bluemuzzle.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) 2 0.2 255
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Spawn (END)
+		wcs_log [Race]: Vagabond - [Block] Spawn (END)
 	}
 }
 
@@ -40,14 +40,14 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Death (START)
+		wcs_log [Race]: Vagabond - [Block] Death (START)
 	}
 	es wcsgroup set vaga event_var(userid) 0
 	es wcsgroup set vaga_shadows event_var(userid) 0
 	es wcsgroup set is_frozen event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Death (END)
+		wcs_log [Race]: Vagabond - [Block] Death (END)
 	}
 }
 
@@ -55,14 +55,14 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] OnChange (START)
+		wcs_log [Race]: Vagabond - [Block] OnChange (START)
 	}
 	es wcsgroup set vaga server_var(wcs_userid) 0
 	es wcsgroup set vaga_shadows server_var(wcs_userid) 0
 	es wcsgroup set is_frozen server_var(wcs_userid) 1
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] OnChange (END)
+		wcs_log [Race]: Vagabond - [Block] OnChange (END)
 	}
 }
 
@@ -70,13 +70,13 @@ block speed
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 1 (START)
+		wcs_log [Race]: Vagabond - [Block] Skill: 1 (START)
 	}
 	es wcs_setfx speed event_var(userid) = server_var(wcs_speed) 0
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Adrenaline - Has increased your speed
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 1 (END)
+		wcs_log [Race]: Vagabond - [Block] Skill: 1 (END)
 	}
 }
 
@@ -84,13 +84,13 @@ block gravity
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 2 (START)
+		wcs_log [Race]: Vagabond - [Block] Skill: 2 (START)
 	}
 	es_delayed .2 wcs_setfx gravity event_var(userid) = server_var(wcs_gravity) 0
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Levitation - Reduced your gravity
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 2 (END)
+		wcs_log [Race]: Vagabond - [Block] Skill: 2 (END)
 	}
 }
 
@@ -98,7 +98,7 @@ block flicker
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 3 (START)
+		wcs_log [Race]: Vagabond - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -108,7 +108,7 @@ block flicker
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 3 (END)
+		wcs_log [Race]: Vagabond - [Block] Skill: 3 (END)
 	}
 }
 
@@ -116,7 +116,7 @@ block scout
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 4 (START)
+		wcs_log [Race]: Vagabond - [Block] Skill: 4 (START)
 	}
 	if (server_var(wcs_dice4) <= server_var(wcs_chance)) do
 	{
@@ -208,7 +208,7 @@ block scout
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 4 (END)
+		wcs_log [Race]: Vagabond - [Block] Skill: 4 (END)
 	}
 }
 
@@ -216,7 +216,7 @@ block ultimate
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 5 (START)
+		wcs_log [Race]: Vagabond - [Block] Skill: 5 (START)
 	}
 	es_getgame wcs_gamecheck
 	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
@@ -382,6 +382,6 @@ block ultimate
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Vagabond - [Block] Skill: 5 (END)
+		wcs_log [Race]: Vagabond - [Block] Skill: 5 (END)
 	}
 }
