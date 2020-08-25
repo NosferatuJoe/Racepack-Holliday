@@ -157,7 +157,7 @@ block teleport_push
 	{
 		es_createvectorstring vector1 server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1)
 		es wcs_pushto server_var(wcs_userid) server_var(vector1) 1.8
-		es wcs_fade server_var(wcs_userid) 30 0 0 175 .5 4
+		es wcs_fade server_var(wcs_userid) 30 0 0 175 1 4
 		es_getgame wcs_gamecheck
 		if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
 		{
@@ -266,7 +266,7 @@ block teleport_push
 		es_createvectorstring vector1 server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1)
 		es wcs_pushto server_var(wcs_userid) server_var(vector1) 1.8
 		es_playsound server_var(wcs_userid) wcs/teleport.mp3 1
-		es wcs_fade server_var(wcs_userid) 30 0 0 175 .5 4
+		es wcs_fade server_var(wcs_userid) 30 0 0 175 1 4
 	}
 	ifx true(wcs_race_debugging) do
 	{

@@ -117,7 +117,7 @@ block chameleon
 	{
 		es wcs_setfx speed server_var(wcs_userid) = 2.25 server_var(wcs_duration)
 		es wcs_setfx gravity server_var(wcs_userid) - 0.40 server_var(wcs_duration)
-		es wcs_fade server_var(wcs_userid) 0 220 0 100 server_var(wcs_duration) 4
+		es wcs_fade server_var(wcs_userid) 0 220 0 100 3 4
 		es wcs_color server_var(wcs_userid) 255 255 255 0 1
 		es_delayed server_var(wcs_duration) wcs_color server_var(wcs_userid) 255 255 255 255 1
 		es playerget primary wcs_primary server_var(wcs_userid)
