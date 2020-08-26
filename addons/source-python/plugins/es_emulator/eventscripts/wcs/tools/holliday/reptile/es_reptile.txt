@@ -40,6 +40,7 @@ block spawn
 	{
 		wcs_log [Race]: Reptile - [Block] Spawn (START)
 	}
+	es wcs_setcooldown event_var(userid) 5
 	es wcsgroup set reptile event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 2
