@@ -125,7 +125,7 @@ block hell
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do 
 	{
-		es_xrand wcs_dmg 14 28
+		es_xrand wcs_dmg 20 42
 		es damage event_var(attacker) server_var(wcs_dmg) 1 event_var(userid)
 		es wcs_centertell event_var(attacker) From hell dealt server_var(wcs_dmg) damage to you
 		es wcs_centertell event_var(userid) From hell reflected server_var(wcs_dmg) damage to the attacker
