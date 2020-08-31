@@ -40,10 +40,10 @@ block spawn
 	{
 		wcs_log [Race]: Reptile - [Block] Spawn (START)
 	}
-	es wcs_setcooldown event_var(userid) 5
 	es wcsgroup set reptile event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 2
+	es_delayed .1 wcs_setcooldown event_var(userid) 10
 	es_delayed .1 es_give event_var(userid) weapon_knife
 	es_delayed .5 wcs_color event_var(userid) 0 255 0 255 1
 	if (server_var(wcs_reptile_start) == 1) do
@@ -235,18 +235,18 @@ block reptile
 	es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 server_var(wcs_userid)
 	es playerget health wcs_health server_var(wcs_userid)
 	es_delayed .1 wcs_spawn server_var(wcs_userid) 1
+	es_delayed .2 wcs_setcooldown server_var(wcs_userid) server_var(wcs_duration)
 	es_delayed .2 wcs_teleport server_var(wcs_userid) server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1)
 	es_delayed .3 wcs_color server_var(wcs_userid) 255 255 255 0 1
 	es_delayed .7 wcs_setfx health server_var(wcs_userid) = server_var(wcs_health) 0
 	es_delayed .7 wcs_setfx speed server_var(wcs_userid) + .25 0
 	es_delayed .7 wcs_setfx gravity server_var(wcs_userid) - .1 0
-	es_delayed server_var(wcs_duration) wcs_color server_var(wcs_userid) 255 255 255 255 1
+	es_delayed 3 wcs_color server_var(wcs_userid) 255 255 255 255 1
 	es_give server_var(wcs_userid) env_blood
 	es_fire server_var(wcs_userid) env_blood addoutput "spawnflags 41"
 	es_fire server_var(wcs_userid) env_blood emitblood
 	es_delayed 3 es_fire server_var(wcs_userid) env_blood kill
 	es_tell server_var(wcs_userid) #multi #green[WCS]#lightgreen Reptile - You've faked your own death
-	es_delayed .2 wcs_setcooldown server_var(wcs_userid) server_var(wcs_duration)
 	ifx true(wcs_race_debugging) do
 	{
 		wcs_log [Race]: Reptile - [Block] Skill: 4 (END)
