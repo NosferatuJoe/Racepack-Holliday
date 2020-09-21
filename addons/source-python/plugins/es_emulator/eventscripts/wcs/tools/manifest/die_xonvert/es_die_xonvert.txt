@@ -54,23 +54,17 @@ block health_leech
 			{
 				es_playsound event_var(attacker) wcs/vampiricstrike.wav .7
 				es_playsound event_var(userid) wcs/vampiricstrike.wav .8
-				es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(userid)
-				es_getplayerlocation wcs_x2 wcs_y2 wcs_z2 event_var(attacker)
-				es_xmath wcs_z1 + 20
-				es_xmath wcs_z2 + 20
-				es_createvectorstring vector1 server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1)
-				es_createvectorstring vector2 server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2)
 				es_xgetplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(attacker)
 				es_xgetplayerlocation wcs_x2 wcs_y2 wcs_z2 event_var(userid)
 				es_xmath wcs_z1 + 5
 				es_xmath wcs_z2 + 5
-				est_effect 3 #a 0 sprites/tp_beam001.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 1 30 30 255 10 25 200
+				es est_effect 3 #a 0 sprites/tp_beam001.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 1 30 30 255 10 25 200
 				es_xmath wcs_z1 + 5
 				es_xmath wcs_z2 + 5
-				est_effect 3 #a 0 sprites/tp_beam001.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 1 30 30 255 10 25 200
+				es est_effect 3 #a 0 sprites/tp_beam001.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 1 30 30 255 10 25 200
 				es_xmath wcs_z1 + 5
 				es_xmath wcs_z2 + 5
-				est_effect 3 #a 0 sprites/tp_beam001.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 1 30 30 255 10 25 200
+				es est_effect 3 #a 0 sprites/tp_beam001.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 1 30 30 255 10 25 200
 				es playerget health wcs_tmp1 event_var(attacker)
 				if (server_var(wcs_tmp1) > 260) do
 				{
