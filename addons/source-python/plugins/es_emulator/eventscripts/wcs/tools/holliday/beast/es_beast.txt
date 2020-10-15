@@ -65,9 +65,6 @@ block resurrection
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
 		es_delayed 1.5 wcs_spawn event_var(userid) 1
-		es_delayed 2 wcs_setfx speed event_var(userid) + .25 0
-		es_delayed 2 wcs_setfx health event_var(userid) + 75 0
-		es_delayed 2 wcs_setfx gravity event_var(userid) - .1 0
 		es_getgame wcs_gamecheck
 		if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
 		{

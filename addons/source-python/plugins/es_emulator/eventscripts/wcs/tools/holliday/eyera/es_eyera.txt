@@ -48,9 +48,6 @@ block respawn
 		es_delayed 2.5 es_playsound event_var(userid) wcs/resurrect.wav .8
 		es_delayed 2.5 wcs_spawn event_var(userid) 1
 		es_delayed 2.6 wcs_teleport event_var(userid) server_var(wcs_x3) server_var(wcs_y3) server_var(wcs_z3)
-		es_delayed 3.1 wcs_setfx speed event_var(userid) + .25 0
-		es_delayed 3.1 wcs_setfx health event_var(userid) + 75 0
-		es_delayed 3.1 wcs_setfx gravity event_var(userid) - .1 0
 	}
 	ifx true(wcs_race_debugging) do
 	{

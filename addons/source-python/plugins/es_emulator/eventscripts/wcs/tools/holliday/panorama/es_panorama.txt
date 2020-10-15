@@ -125,12 +125,6 @@ block rematch
 			es_delayed 1.5 wcs_spawn event_var(attacker) 1
 			es_delayed 1.5 wcs_teleport event_var(userid) server_var(wcs_x3) server_var(wcs_y3) server_var(wcs_z3)
 			es_delayed 1.5 wcs_teleport event_var(attacker) server_var(wcs_x4) server_var(wcs_y4) server_var(wcs_z4)
-			es_delayed 2.1 wcs_setfx speed event_var(userid) + .25 0
-			es_delayed 2.1 wcs_setfx health event_var(userid) + 75 0
-			es_delayed 2.1 wcs_setfx gravity event_var(userid) - .1 0
-			es_delayed 2.1 wcs_setfx speed event_var(attacker) + .25 0
-			es_delayed 2.1 wcs_setfx health event_var(attacker) + 75 0
-			es_delayed 2.1 wcs_setfx gravity event_var(attacker) - .1 0
 			es_tell event_var(userid) #multi #green [WCS]: #lightgreen Rematch - You called for a rematch
 			es_tell event_var(attacker) #multi #green [WCS]: #lightgreen Rematch - Panorama called for a rematch
 		}
