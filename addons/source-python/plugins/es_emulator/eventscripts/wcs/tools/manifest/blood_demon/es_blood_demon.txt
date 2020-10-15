@@ -136,7 +136,7 @@ event player_death
 				else do
 				{
 					es_xrand wcs_speed 20 30
-					es_math server_var(wcs_speed) / 100
+					es_xmath wcs_speed / 100
 					es wcs_setfx speed event_var(attacker) + server_var(wcs_speed) 0
 					es_tell event_var(attacker) #multi #green [WCS]: #lightgreen Upgrade - You gained some more speed!
 				}
