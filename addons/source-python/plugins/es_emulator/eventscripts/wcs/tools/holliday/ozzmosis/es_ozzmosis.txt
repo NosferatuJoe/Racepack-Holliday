@@ -49,8 +49,15 @@ block slip
 			if (server_var(wcs_rand) = 2) do
 			{
 				es_xset wcs_player 0
-				if (event_var(es_userteam) = 2) then getrandplayer wcs_player #ct
-				if (event_var(es_userteam) = 3) then getrandplayer wcs_player #t
+				ifx true(wcs_ffa_enabled) do
+				{
+					es getrandplayer wcs_player #alive
+				}
+				ifx false(wcs_ffa_enabled) do
+				{
+					if (event_var(es_userteam) = 2) then getrandplayer wcs_player #ct
+					if (event_var(es_userteam) = 3) then getrandplayer wcs_player #t
+				}
 				es_exists wcs_exists userid server_var(wcs_player)
 				es wcs_domole server_var(wcs_player) 2
 				es_tell event_var(userid) #multi #green [WCS]: #lightgreen My Jekyll doesn't hide - An enemy will mole to your spawn after the freeze time

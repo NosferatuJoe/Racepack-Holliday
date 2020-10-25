@@ -90,8 +90,36 @@ block protostar
 	{
 		if (event_var(es_userdead) = 0) do
 		{
-			es wcsgroup set phoenix event_var(userid) 1 event_var(es_userteam)
-			es_tell event_var(userid) #multi #green [WCS]: #lightgreen Protostar - The first to die on your team will be respawned
+			ifx true(wcs_ffa_enabled) do
+			{
+				es wcsgroup set phoenix_ffa event_var(userid) 0
+				if (server_var(wcs_dice) <= server_var(wcs_chance)) do
+				{
+					es_xrand wcs_rand 0 2
+					ifx false(wcs_rand) do
+					{
+						es wcsgroup set phoenix_ffa event_var(userid) 1
+						es_tell event_var(userid) #multi #green [WCS]: #lightgreen Protostar - You'll be reborn if you die during this round!
+					}
+				}
+			}
+			ifx false(wcs_ffa_enabled) do
+			{
+				es wcsgroup get has_used_phoenix wcs_tmp3 event_var(userid)
+				if (server_var(wcs_tmp3) == 0) do
+				{
+					es wcsgroup set has_used_phoenix event_var(userid) 1
+					if (server_var(wcs_dice) <= server_var(wcs_chance)) do
+					{
+						if (event_var(es_userteam) = 2) then es_xset wcs_team #t
+						if (event_var(es_userteam) = 3) then es_xset wcs_team #ct
+						es wcsgroup get phoenix wcs_phoenix server_var(wcs_team)
+						es_xmath wcs_phoenix + 1
+						es wcsgroup set phoenix server_var(wcs_team) server_var(wcs_phoenix)
+						es_tell event_var(userid) #multi #green [WCS]: #lightgreen Protostar - The first to die on your team will be respawned
+					}
+				}
+			}
 			es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(userid)
 			es_getplayerlocation wcs_x2 wcs_y2 wcs_z2 event_var(userid)
 			es_getplayerlocation wcs_x3 wcs_y3 wcs_z3 event_var(userid)

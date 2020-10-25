@@ -60,8 +60,15 @@ block genocide
 		if (event_var(es_userdead) = 0) do
 		{
 			es_xset wcs_count 0
-			if (event_var(es_userteam) = 2) then es_xset wcs_team #t
-			if (event_var(es_userteam) = 3) then es_xset wcs_team #ct
+			ifx true(wcs_ffa_enabled) do
+			{
+				es_xset wcs_team #alive
+			}
+			ifx false(wcs_ffa_enabled) do
+			{
+				if (event_var(es_userteam) = 2) then es_xset wcs_team #t
+				if (event_var(es_userteam) = 3) then es_xset wcs_team #ct
+			}
 			es wcs_getinfo event_var(userid) wcs_tmp name race
 			es wcs_foreach player wcs_player server_var(wcs_team) "es_xdoblock wcs/tools/holliday/genocide/damage"
 		}
