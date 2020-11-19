@@ -59,7 +59,7 @@ block blooddemon_p90
 	}
 }
 
-event player_death
+block blooddemon_upgrade
 {
 	es wcsgroup get blooddemon_player wcs_tmp2 event_var(attacker)
 	if (server_var(wcs_tmp2) == 1) do
