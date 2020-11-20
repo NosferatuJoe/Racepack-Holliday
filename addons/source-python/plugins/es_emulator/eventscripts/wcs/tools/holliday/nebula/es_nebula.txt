@@ -111,8 +111,8 @@ block protostar
 					es wcsgroup set has_used_phoenix event_var(userid) 1
 					if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 					{
-						if (event_var(es_userteam) = 2) then es_xset wcs_team #t
-						if (event_var(es_userteam) = 3) then es_xset wcs_team #ct
+						if (event_var(es_userteam) == 2) then es_xset wcs_team #t
+						if (event_var(es_userteam) == 3) then es_xset wcs_team #ct
 						es wcsgroup get phoenix wcs_phoenix server_var(wcs_team)
 						es_xmath wcs_phoenix + 1
 						es wcsgroup set phoenix server_var(wcs_team) server_var(wcs_phoenix)
