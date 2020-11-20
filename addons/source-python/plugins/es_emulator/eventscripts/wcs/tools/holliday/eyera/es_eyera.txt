@@ -12,6 +12,8 @@ block spawn
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
 	es_delayed .1 wcs_setcooldown event_var(userid) 25
+	es wcsgroup get evasion_count wcs_tmp event_var(userid)
+    es_tell event_var(userid) #multi #green [WCS]: #lightgreen Blink of an eye - You've evaded#green server_var(wcs_tmp)#lightgreen bullets previous round!
 	ifx true(wcs_race_debugging) do
 	{
 		wcs_log [Race]: Eye Ra - [Block] Spawn (END)
@@ -63,7 +65,7 @@ block blink
 	}
 	es wcsgroup set evasion event_var(userid) 1
 	es wcsgroup set evasion_chance event_var(userid) server_var(wcs_chance)
-	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Blink of an eye - Gave you server_var(wcs_chance)% to evade
+	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Blink of an eye - Gave you server_var(wcs_chance)% chance to evade shots
 	es_playsound event_var(userid) weapons\fx\nearmiss\bulletltor13.wav 1
 	es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(userid)
 	es_getplayerlocation wcs_x2 wcs_y2 wcs_z2 event_var(userid)
@@ -108,10 +110,12 @@ block truth
 				}
 				ifx false(wcs_ffa_enabled) do
 				{
-					if (event_var(es_userteam) = 2) then es_delayed .1 playerset color event_var(userid) 255 0 0 255
-					if (event_var(es_userteam) = 3) then es_delayed .1 playerset color event_var(userid) 0 255 0 255
+					if (event_var(es_userteam) == 2) then es_delayed .1 playerset color event_var(userid) 255 0 0 255
+					if (event_var(es_userteam) == 3) then es_delayed .1 playerset color event_var(userid) 0 255 0 255
 				}
 				es_delayed 2 wcs_color event_var(userid) server_var(wcs_red) server_var(wcs_green) server_var(wcs_blue) server_var(wcs_alpha) 1
+				es_tell event_var(userid) #multi #green [WCS]: #lightgreen Lens of Truth - Destroyed your invisibility!
+				es_tell event_var(attacker) #multi #green [WCS]: #lightgreen Lens of Truth - Made your enemy visible
 				es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(attacker)
 				es_getplayerlocation wcs_x2 wcs_y2 wcs_z2 event_var(userid)
 				es_xmath wcs_z1 + 25
