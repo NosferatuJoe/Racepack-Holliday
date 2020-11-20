@@ -11,6 +11,8 @@ block spawn
 	}
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
+	es wcsgroup get evasion_count wcs_tmp event_var(userid)
+    es_tell event_var(userid) #multi #green [WCS]: #lightgreen Evade - You've evaded#green server_var(wcs_tmp)#lightgreen bullets previous round!
 	ifx true(wcs_race_debugging) do
 	{
 		wcs_log [Race]: Molecule - [Block] Spawn (END)
